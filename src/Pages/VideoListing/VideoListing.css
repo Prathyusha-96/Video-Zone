@@ -1,0 +1,51 @@
+.home-page {
+    display: flex;
+  
+  }
+  .videos-section {
+    width: calc(100% - 10rem);
+    margin: 1rem auto;
+  }
+  
+  .videos-section .video-categories {
+    margin: 1rem auto;
+  }
+  
+  .video-categories button {
+    color: #db2777;
+    border: 2px solid #db2777;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    background-color: white;
+  }
+  
+  .video-categories button:hover {
+    background-color: #db2777;
+    color: white;
+  }
+  
+  .video-categories button:nth-child(1) {
+    background-color: #db2777;
+    color: white;
+  }
+  
+   .videos-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+  
+  @media screen and (max-width: 750px) {
+    .home-page .videos-section {
+      width: 90%;
+    }
+  }
+
+
+
+
+
+
+
+
+

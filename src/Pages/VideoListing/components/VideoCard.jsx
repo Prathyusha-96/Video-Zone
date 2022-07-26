@@ -1,29 +1,47 @@
+import React from "react";
 import "./VideoCard.css";
+import { useNavigate } from "react-router-dom";
 
 
-const VideoCard = () => {
+const VideoCard = ({item}) => {
+  const navigate = useNavigate();
+  const{youtubeID, thumbnail, title, channelname, channelimg, viewcount, releasedate} = item;
+
+  const singleVideoPage = () => {
+    navigate(`/singlevideo/${youtubeID}`)
+  }
     return (
-
-<div className="video-card">
-      <div className="video-header">
+      <div className="video-card">
+      <div className="video-header" onClick={() => singleVideoPage()} >
         <img
-          src="https://i3.ytimg.com/vi/S9DnGzgyoX8/maxresdefault.jpg"
-          className="img-responsive  grid-position"
-        ></img>
+          src={thumbnail}
+          className="img-responsive" />
       </div>
       <div className="video-body">
         <img
-          src="https://i3.ytimg.com/vi/nlR_8ZRLOjI/maxresdefault.jpg"
+          src={channelimg}
           className="img-responsive img-circle video-body-img"
         ></img>
-        <div >
+       <div>
           <h3 className="video-title">
-           Home Decor || DIY Crafts </h3>
-          <span className="author">Aloha Crafts</span>
+           {title}</h3>
+           <span>
+           <i className='icon fas fa-ellipsis-v'></i>
+           </span>
+            <div className="author">{channelname}</div>
+           <div className="views">{viewcount} .  
+            <span>{releasedate}</span>
+           </div>
+         </div>
           </div>
           </div>
-    </div>
        
     );
 };
 export { VideoCard }
+
+        
+
+
+
+  

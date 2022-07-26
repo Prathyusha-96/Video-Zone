@@ -1,2 +1,3 @@
 import { VideoListing } from "./VideoListing/VideoListing";
-export { VideoListing }
+import { SingleVideo } from "./SingleVideo/SingleVideo";
+export { VideoListing, SingleVideo }

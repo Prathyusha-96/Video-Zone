@@ -1,55 +1,63 @@
 .video-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    margin: 0;
     width: 100%;
-    max-width: 20rem;
-    margin: 0.5rem;
     cursor: pointer;
   }
   .video-card:hover {
     transform: scale(1.03);
     transition: 0.2s;
   }
-  .video-header {
+   .video-card .video-header {
     width: 100%;
     display: grid;
   }
   .video-header img {
-    width: 17rem;
-    height: 12rem;
- }    
- .grid-position {
-    grid-column: 1/3;
-    grid-row: 1/3;
- }
-  
-.video-card .video-body {
+    width: 15rem;
+    height: 9rem;
+  } 
+  .video-card .video-body {
     display: flex;
-    margin-top: 0.2rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 0 0.2rem;
+    gap: 0.5rem;
   }
-  
-  .video-body-img {
-    height: 50px;
-    width: 50px;
+  .video-body img{
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
   }
-
   .video-body .video-title {
-    color: black;
-    font-size: 1rem;
-    margin-top: 0.2rem;
-    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    width: 10rem;
+    word-wrap: break-word;
+    margin-top: 0;
+    margin-bottom: 0.1rem;
+
+  }
+  .video-title>.icon{
+    float: right;
   }
   .video-body .author {
     color: black;
-    margin-top: 1rem;
-   
-    
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    margin-bottom: 0.1rem;
+
   }
+  .video-body .icon{
+    float: right;
+    color: #333333;
+    position: relative;
+    top: -1.5rem;
+    left: 2rem;
+    cursor: pointer;
+  }
+  .video-body .views {
+     font-size: 0.5rem;
+  }
+
+
+
  
-
-
-
 

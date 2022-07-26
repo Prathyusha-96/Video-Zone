@@ -4,23 +4,24 @@ import './Navbar.css';
 
 export const Navbar = () => {
     return(
-   <nav>
-    <div className="left-nav">
+   <>
+    <nav className="navigation">
         <Link to="/video">
-            Video-Zone
+        <h3 className="navigation-heading">Video-Zone</h3>
         </Link>
-     </div>
-     <ul className="navbar-search">
+    <ul className="navbar-search">
     <input className="search-box" type="search" placeholder="Search" /><span className="search-icon">
    <i className="fas fa-search" aria-hidden="true"></i></span>
   </ul>
-    <ul className="right-nav">
-        <li>
-    <Link  to="/Login" className="btn btn-primary">
+    <ul className="navbar-right">
+    <div className="btn btn-primary">
+ <Link  to="/Login">
     Login
  </Link>
- </li>
+ </div>
+ 
 </ul>
 </nav>
+</>
     );
 }

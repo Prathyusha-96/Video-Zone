@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     let id;
     if (token) {
       id = setTimeout(() => {
-        navigate('/video');
+        navigate('/');
       });
     }
     return () => clearTimeout(id);

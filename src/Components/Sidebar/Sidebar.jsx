@@ -6,7 +6,7 @@ import "./Sidebar.css";
   return (
     <div className='sidebar'>
     <ul className='sidebar-menu'>
-      <Link to="/video">
+      <Link to="/">
         < li className='sidebar-link text'>
         <i className="icon fas fa-home"></i> Home
         </li>

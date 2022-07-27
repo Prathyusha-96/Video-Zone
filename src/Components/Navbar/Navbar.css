@@ -47,3 +47,6 @@
     border-radius: 0.2rem;
     align-items: center;
 }
+.btn:hover {
+    background-color: var(--main-hover);
+}

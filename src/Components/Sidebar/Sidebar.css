@@ -1,29 +1,33 @@
 .sidebar {
-    background-color: var(--bg-color);
-    min-width: 12rem;
+    background-color: var(--background);
+    width: 8rem;
     height: 100vh;
     position: sticky;
     top: 0;
     left: 0;
 }
-
 .sidebar-menu {
-    margin: 0 auto;
+   margin: 0.5rem;
+   padding-inline-start: 0px;
 }
 .sidebar-menu li {
     list-style: none;
 }
-.sidebar-link {
-    padding: 1.2rem 0 1rem 1rem;
-    font-size: 1.2rem;
+.sidebar-link  {
+    padding: 1rem 0 1rem 1rem;
+    font-size: 0.7rem;
     cursor: pointer;
 }
+.sidebar-link .icon{
+margin-right: 0.5rem;
+}
+
 .sidebar-link:hover {
-    color: #db2777;
+    color: var(--main-color);
 }
 @media screen and (max-width: 750px) {
   .sidebar {
-    display: none;
+    display: flex;
   }
 } 
 

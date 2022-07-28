@@ -2,4 +2,6 @@ import { VideoListing } from "./VideoListing/VideoListing";
 import { SingleVideo } from "./SingleVideo/SingleVideo";
 import { Login } from "./Authentication/Login";
 import { Signup } from "./Authentication/Signup";
-export { VideoListing, SingleVideo, Login, Signup}
+import { Like } from "./Like/Like";
+import { Watchlater } from "./Watch Later/WatchLater";
+export { VideoListing, SingleVideo, Login, Signup, Like, Watchlater}

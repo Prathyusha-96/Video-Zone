@@ -1,14 +1,18 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import { Sidebar } from "../../Components";
-import { useData } from "../../context";
+import { useAuth, useData } from "../../context";
+import { likedHandler, watchLaterHandler } from "../../utils";
 import "./SingleVideo.css";
 
 const SingleVideo = () => {
     const { videoID } = useParams();
-    const { state } = useData();
-    const findVideo = state.videos?.find((element) => element.youtubeID === videoID);
-
+    const { state, dispatch } = useData();
+    const { token } = useAuth();
+    const video = state.videos?.find((element) => element._id === videoID);
+    const isLiked = state.like.find((element) => element._id === video._id);
+  const isInWatchLater = state.watchlater.find(
+    (element) => element._id === video._id);
     return (
         <>
         <div className='videoplayer'>
@@ -17,7 +21,7 @@ const SingleVideo = () => {
           <iframe
             width='100%'
             height='100%'
-            src={`https://www.youtube.com/embed/${findVideo?.youtubeID}`}
+            src={`https://www.youtube.com/embed/${video?.youtubeID}`}
             title='YouTube video player'
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
@@ -25,28 +29,48 @@ const SingleVideo = () => {
           ></iframe>
           <div className="video-footer">
             <div className="footer-title">
-            <div className="video-heading">{findVideo?.title}</div>
+            <div className="video-heading">{video?.title}</div>
             
            <div className="video-numbers">
-            <div className="video-viewcount">{findVideo?.viewcount} .
-            <span>{findVideo?.releasedate}</span>
+            <div className="video-viewcount">{video?.viewcount} .
+            <span>{video?.releasedate}</span>
             </div>
             </div>
             <div className="footer-btn">
-              <button className="btn btn-icon">
-                <i className="fas fa-thumbs-up"></i> Like
+              <button onClick={() => likedHandler(video, token, dispatch, isLiked)}
+              className={
+                isLiked
+                  ? 'btn btn-action is-liked'
+                  : 'btn btn-action btn-icon'
+              }>
+                <i className="fas fa-thumbs-up"></i>
+                {isLiked ? "Liked" : "Like"} 
               </button>
               <button className="btn btn-icon">
                 <i className="fas fa-save"></i> Save
               </button>
-              <button className="btn btn-icon">
+              <button 
+              onClick={() =>
+                watchLaterHandler(video, token, dispatch, isInWatchLater)
+              }
+              className={
+                isInWatchLater
+                  ? 'btn btn-action isin-watchlater  '
+                  : 'btn btn-action btn-icon'
+              }
+              >
                 <i className="fas fa-clock"></i>Watch Later
               </button>
             </div>
             </div>
-            <div>
-            <h5 className="video-author">{findVideo?.channelname}</h5>
-            </div>
+            <div className="video-content">
+              <img className="avatar avatar-xs" 
+              src={video?.channelimg} 
+              alt="img" />
+              <h5 className="video-author">{video?.channelname}</h5>
+              </div>
+            <p className="video-description">{video?.description}</p>
+            
           </div>
         </div>
       </div>

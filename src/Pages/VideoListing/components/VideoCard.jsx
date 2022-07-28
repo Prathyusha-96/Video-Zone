@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({item}) => {
   const navigate = useNavigate();
-  const{youtubeID, thumbnail, title, channelname, channelimg, viewcount, releasedate} = item;
+  const{_id,  thumbnail, title, channelname, channelimg, viewcount, releasedate} = item;
 
   const singleVideoPage = () => {
-    navigate(`/singlevideo/${youtubeID}`)
+    navigate(`/singlevideo/${_id}`)
   }
     return (
       <div className="video-card">

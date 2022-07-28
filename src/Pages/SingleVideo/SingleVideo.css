@@ -14,18 +14,14 @@
 .play-container iframe {
     height: calc(100vh - 70px);
 }
-.video-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
 .video-heading {
+    
     color: black;
     font-size: 1rem;
 }
 
 .video-author {
-  
+    margin-top: 2rem;
     color: black;
 }
 .footer-title .video-numbers{
@@ -34,25 +30,33 @@
     font-size: 0.9rem;
     margin: 0.5rem 0;
     opacity: 0.8;
+    border-bottom: 1px solid var(--black-color);
 }
 .video-viewcount {
     color: var(--off-grey);
     padding-bottom: 1rem;
     font-size: .6rem;
+   
 }
+.video-content {
+    display: flex;
+    margin: 0;
+}
+.video-author{
+    margin: .5rem 0 0;
+    font-size: 1rem;
 
+}
 .video-description {
-    padding-top: 1.5rem;
-}
-
-.desc-text {
-    padding: .5rem 1.5rem 0 0;
-    color: var(--off-white);
-    font-size: .9rem;
+    margin-bottom: 1.5rem;
+    width: 40rem;
     word-wrap: break-word;
+    margin-left: 3rem;
+    color: var(--black-color);
+    font-size: .7rem;
+    text-align: justify;
 }
-
- .footer-btn {
+.footer-btn {
     float: right;
     margin-top: -4rem;
 } 

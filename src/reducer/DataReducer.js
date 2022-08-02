@@ -5,6 +5,7 @@ export const InitialState = {
   like: [],
   watchlater: [],
   playlists: [],
+  history: [],
 };
 
 export const DataReducer = (state, action) => {
@@ -59,8 +60,14 @@ export const DataReducer = (state, action) => {
       };
     }
 
+      case ACTION_TYPE.HISTORY:{
+        return {
+          ...state,
+          history: action.payload.history,
 
-    default:
+        }
+      };
+     default:
       return state;
   }
 };

@@ -1,0 +1,10 @@
+.history-btn {
+    float: right;
+    position: absolute;
+    right: 0;
+}
+
+.clear-btn {
+    background-color: var(--black-color);
+    text-transform: capitalize;
+} 

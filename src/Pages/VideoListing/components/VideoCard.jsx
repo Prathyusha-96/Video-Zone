@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./VideoCard.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useData} from "../../../context";
+import { addToHistory } from "../../../utils/historyUtils";
 import { watchLaterHandler } from "../../../utils";
 import {
      addToVideoPlaylist,
@@ -29,7 +30,8 @@ import {
   const{_id,  thumbnail, title, channelname, channelimg, viewcount, releasedate} = item;
 
   const singleVideoPage = () => {
-    navigate(`/singlevideo/${_id}`)
+    navigate(`/singlevideo/${_id}`);
+    token && addToHistory(item, token, dispatch)
   };
   const addToPlaylist = () => {
     if (token) {

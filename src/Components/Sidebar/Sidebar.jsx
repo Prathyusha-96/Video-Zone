@@ -11,7 +11,7 @@ import "./Sidebar.css";
         <i className="icon fas fa-home"></i> Home
         </li>
       </Link>
-      <Link to="/playlists">
+      <Link to="/playlist">
         <li className='sidebar-link text'>
           <i className="icon fas fa-play-circle"></i> Playlist
         </li>

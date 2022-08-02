@@ -2,8 +2,9 @@ import "./App.css"
 import MockAPI from "./Mockman/Mockman";
 import { Routes, Route} from "react-router-dom";
 import { Navbar } from "./Components";
-import { SingleVideo, VideoListing, Login, Signup, Like, Watchlater } from "./Pages";
+import { SingleVideo, VideoListing, Login, Signup, Like, Watchlater, Playlist, } from "./Pages";
 import { useAuth } from "./context";
+import { PlaylistVideo } from "./Pages/Playlist/component/PlaylistVideo";
 
 function App() {
   const { token } = useAuth();
@@ -19,7 +20,12 @@ function App() {
           path='/watchlater'
           element={token ? <Watchlater /> : <Login />}
         ></Route>
-       
+        <Route
+          path='/playlist'
+          element={token ? <Playlist /> : <Login />}
+        ></Route>
+        <Route path='/playlist/:playlistId' element={<PlaylistVideo />}></Route>
+        
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        </Routes>

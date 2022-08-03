@@ -2,7 +2,7 @@ import {
     removeWatchLaterServices,
     watchLaterServices,
   } from '../Services/Services';
-  
+  import { ToastHandler } from './toastfunction';
   export const watchLaterHandler = async (
     video,
     token,
@@ -20,6 +20,7 @@ import {
             watchlater: response.data.watchlater,
           },
         });
+        ToastHandler("success", "Video Added In Watch Later");
       }
     }
   };
@@ -33,5 +34,6 @@ import {
           watchlater: response.data.watchlater,
         },
       });
+      ToastHandler("success", "Video Removed from Watch Later");
     }
   };

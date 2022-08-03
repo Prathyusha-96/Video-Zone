@@ -14,7 +14,7 @@ export const videos = [
     channelimg: sonymusic,
     thumbnail: "https://i3.ytimg.com/vi/bzSTpdcs-EI/maxresdefault.jpg",
     viewcount: "309M Views",
-    category: "music",
+    category: "Music",
     releasedate: "18 Oct 2016",
     description: "Sing along to the soulful Channa Mereya.Lyrics have been beautifully crafted by Amitabh Bhattacharya and the song has been brought to life by none other than Pritam. Arijit Singh has voiced the track and the video stars Ranbir Kapoor and Anushka Sharma. ",
     

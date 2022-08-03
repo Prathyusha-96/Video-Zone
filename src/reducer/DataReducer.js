@@ -6,6 +6,9 @@ export const InitialState = {
   watchlater: [],
   playlists: [],
   history: [],
+  categories: [],
+  sortBy: '',
+  search: '',
 };
 
 export const DataReducer = (state, action) => {
@@ -17,6 +20,36 @@ export const DataReducer = (state, action) => {
       };
     }
      
+    case ACTION_TYPE.CATEGORIES: {
+      return {
+        ...state,
+        categories: [
+          ...action.payload.map((cat) => ({
+            ...cat,
+            isActive: cat.categoryName === 'ALL' ? true : false,
+          })),
+        ],
+      };
+    }
+
+    case ACTION_TYPE.SORT_BY: {
+      return {
+        ...state,
+        sortBy: action.payload,
+        categories: state.categories.map((cat) =>
+          cat.categoryName === action.payload
+            ? {
+                ...cat,
+                isActive: true,
+              }
+            : {
+                ...cat,
+                isActive: false,
+              }
+        ),
+      };
+    }
+
     case ACTION_TYPE.ADD_LIKED: {
       return {
         ...state,
@@ -67,6 +100,14 @@ export const DataReducer = (state, action) => {
 
         }
       };
+
+      case ACTION_TYPE.SEARCH: {
+        return {
+          ...state,
+          search: action.payload,
+        };
+      }
+
      default:
       return state;
   }

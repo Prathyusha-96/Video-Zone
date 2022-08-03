@@ -1,5 +1,5 @@
 import { likedServices, removeLikedVideoService } from '../Services/Services';
-
+import { ToastHandler } from './toastfunction';
 export const likedHandler = async (video, token, dispatch, isLiked) => {
   if (isLiked) {
     removeLikeVideoHandler(video._id, token, dispatch);
@@ -12,6 +12,7 @@ export const likedHandler = async (video, token, dispatch, isLiked) => {
           like: response.data.likes,
         },
       });
+      ToastHandler("success", "Video added to like")
     }
   }
 };

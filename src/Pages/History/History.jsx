@@ -25,7 +25,7 @@ export const History = () => {
               </button>
             </div>
           )}
-
+         
           {state.history.length > 0 ? (
             state.history.map((item) => (
               <HistoryCard key={item._id} item={item} />

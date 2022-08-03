@@ -1,13 +1,13 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginServices, signupSevices } from '../Services/Services';
-
+import { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginServices, signupSevices } from "../Services/Services";
+import { ToastHandler } from "../utils/toastfunction";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const localStorageToken = localStorage.getItem('login');
+  const localStorageToken = localStorage.getItem("login");
   const [token, setToken] = useState(localStorageToken?.token);
-  const localStorageUser = localStorage.getItem('user');
+  const localStorageUser = localStorage.getItem("login");
   const [user, setUser] = useState(localStorageUser?.user);
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     let id;
     if (token) {
       id = setTimeout(() => {
-        navigate('/');
+        navigate("/");
       });
     }
     return () => clearTimeout(id);
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     e.preventDefault();
     try {
       let resp;
-      if (e.target.innerText === 'Login as Guest') {
+      if (e.target.innerText === "Login as Guest") {
         setLogin({
           email: "guest@gmail.com",
           password: "guest1234",
@@ -36,45 +36,53 @@ const AuthProvider = ({ children }) => {
       }
       if (resp.status === 200) {
         localStorage.setItem(
-          'login',
+          "login",
           JSON.stringify({
             token: resp.data.encodedToken,
-            user: resp.data.foundUSer,
+            user: resp.data.foundUser,
           })
         );
-        setUser(resp.data.foundUSer);
+       ToastHandler("success", "Successfully Logged In");
+       setUser(resp.data.foundUser);
         setToken(resp.data.encodedToken);
       }
     } catch (error) {
+      ToastHandler("warn", "Please Enter Valid Username and Password");
       console.error(error);
     }
   };
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    localStorage.removeItem('login');
+    localStorage.removeItem("login");
     setToken(null);
     setUser(null);
-    navigate('/login');
+    ToastHandler("success", "Successfully Logged Out");
+    navigate("/login");
   };
 
   const signupHandler = async (email, password, firstName, lastName) => {
-    try {
-      const resp = await signupSevices(email, password, firstName, lastName);
-      if (resp.status === 201) {
-        localStorage.setItem(
-          'login',
-          JSON.stringify({
-            token: resp.data.encodedToken,
-            user: resp.data.createdUser,
-          })
-        );
-        setUser(resp.data.createdUser);
-        setToken(resp.data.encodedToken);
-      }
+    if (firstName && lastName && password && email !== "") {
+      try {
+        const resp = await signupSevices(email, password, firstName, lastName);
+        if (resp.status === 201) {
+          localStorage.setItem(
+            "login",
+            JSON.stringify({
+              token: resp.data.encodedToken,
+              user: resp.data.createdUser,
+            })
+          );
+          ToastHandler("success", "Your Account Is Ready");
+          setUser(resp.data.createdUser);
+          setToken(resp.data.encodedToken);
+        }
     } catch (error) {
       console.error(error);
-    }
+    } 
+  } else {
+    ToastHandler("warn", "Please Enter Valid User Details");
+  }
   };
 
   return (

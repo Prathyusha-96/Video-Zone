@@ -1,5 +1,6 @@
 import React from "react";
 import {useParams} from "react-router-dom";
+import { useState } from "react";
 import { Sidebar } from "../../Components";
 import { useAuth, useData } from "../../context";
 import { likedHandler, watchLaterHandler } from "../../utils";
@@ -9,10 +10,18 @@ const SingleVideo = () => {
     const { videoID } = useParams();
     const { state, dispatch } = useData();
     const { token } = useAuth();
+    const [copy, setCopy] = useState();
     const video = state.videos?.find((element) => element._id === videoID);
     const isLiked = state.like.find((element) => element._id === video._id);
   const isInWatchLater = state.watchlater.find(
     (element) => element._id === video._id);
+
+    const copyHandler = () => {
+      navigator.clipboard.writeText(
+        `https://video-zone-app.netlify.app//singlevideo/${videoID}`
+      );
+      setCopy(true);
+    };
     return (
         <>
         <div className='videoplayer'>
@@ -46,8 +55,14 @@ const SingleVideo = () => {
                 <i className="fas fa-thumbs-up"></i>
                 {isLiked ? "Liked" : "Like"} 
               </button>
-              <button className="btn btn-icon">
-                <i className="fas fa-save"></i> Save
+              <button  onClick={() => copyHandler()}
+               className={
+                copy
+                  ? 'btn btn-action is-liked'
+                  : 'btn btn-icon btn-icon'
+              }>
+                <i className="fas fa-save"></i> 
+                {copy ? 'Copied' : 'Copy Link'}
               </button>
               <button 
               onClick={() =>

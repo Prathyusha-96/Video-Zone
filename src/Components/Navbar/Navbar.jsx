@@ -35,6 +35,8 @@ export const Navbar = () => {
               type='search'
               placeholder='Search with name'
             />
+            <span className="search-icon">
+   <i className="fas fa-search" aria-hidden="true"></i></span>
          </ul>
         )}
          

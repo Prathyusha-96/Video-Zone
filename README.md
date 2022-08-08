@@ -2,6 +2,7 @@
   <h1>VideoZone</h1>
   
 </div
+
 ## **Features -**
 
 - Home page

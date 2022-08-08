@@ -47,7 +47,7 @@ import {
       <div className="video-header" onClick={() => singleVideoPage()} >
         <img
           src={thumbnail}
-          className="img-responsive" />
+          className="img-responsive grid-position" />
       </div>
       <div className="video-body">
         <img

@@ -7,12 +7,14 @@
   }
   .videos-section .video-categories {
     margin: 0.5rem auto;
+    
   }
   .video-categories button {
     color: var(--main-color);
     border: 1px solid var(--main-color);
     border-radius: 1rem;
     margin: 0.5rem;
+    font-size: 1rem;
     background-color: white;
   }
   .video-categories button:hover {

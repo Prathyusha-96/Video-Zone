@@ -16,7 +16,7 @@ const VideoListing = () => {
       const searchByName = searchVideos([...state.videos], state.search);
       const sortByCategory = sortVideosCategory(searchByName, state.sortBy);
     return(
-        <main>
+        <>
            <div className="home-page">
         <Sidebar />
             <section className="videos-section">
@@ -38,15 +38,11 @@ const VideoListing = () => {
                </div>
                </section>
             </div>
-            </main>
+            </>
             );
 
     
 }
 export { VideoListing }
 
- {/* <button className="btn btn-primary">All</button>
-                    <button className="btn btn-primary">Movies</button>
-                    <button className="btn btn-primary">TEDx Talks</button>
-                    <button className="btn btn-primary">Music</button>
-                    <button className="btn btn-primary">Food</button> */}
+ 

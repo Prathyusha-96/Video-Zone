@@ -23,9 +23,7 @@ export const Navbar = () => {
         <Link to="/">
         <h3 className="navigation-heading">Video-Zone</h3>
         </Link>
-       
-         
-          {pathname === '/' && (
+       {pathname === '/' && (
              <ul className='navbar-search'>
             <input
               className='search-box'

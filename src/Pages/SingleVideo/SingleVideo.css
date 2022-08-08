@@ -1,10 +1,12 @@
 .videoplayer {
     display: flex;
     background-color: var(--main-bg-color);
+    
 }
 
 .play-container {
-    min-height: 100%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -15,9 +17,8 @@
     height: calc(100vh - 70px);
 }
 .video-heading {
-    
-    color: black;
-    font-size: 1rem;
+   color: black;
+    font-size: 1.3rem;
 }
 
 .video-author {
@@ -35,7 +36,7 @@
 .video-viewcount {
     color: var(--off-grey);
     padding-bottom: 1rem;
-    font-size: .6rem;
+    font-size: .9rem;
    
 }
 .video-content {
@@ -44,16 +45,15 @@
 }
 .video-author{
     margin: .5rem 0 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
 }
 .video-description {
     margin-bottom: 1.5rem;
-    width: 40rem;
     word-wrap: break-word;
     margin-left: 3rem;
     color: var(--black-color);
-    font-size: .7rem;
+    font-size: .9rem;
     text-align: justify;
 }
 .footer-btn {
@@ -64,7 +64,7 @@
     background-color: var(--main-color);
     color: var(--background);
     border-radius: 50px;
-    padding: .3rem;
+    padding: .5rem;
 }
 
 .btn-icon:hover {

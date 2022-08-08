@@ -23,7 +23,7 @@ import "./Sidebar.css";
       </Link>
       <Link to="/watchlater">
         <li className='sidebar-link text'>
-          <i className="icon fas fa-clock"></i>  Watch Later
+          <i className="icon fas fa-clock"></i>  WatchLater
         </li>
       </Link>
       <Link to="/history">

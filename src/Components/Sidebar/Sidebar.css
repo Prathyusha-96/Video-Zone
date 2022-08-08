@@ -1,6 +1,6 @@
 .sidebar {
     background-color: var(--background);
-    width: 8rem;
+    width: 9rem;
     height: 100vh;
     position: sticky;
     top: 0;
@@ -15,7 +15,7 @@
 }
 .sidebar-link  {
     padding: 1rem 0 1rem 1rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 .sidebar-link .icon{

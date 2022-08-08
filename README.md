@@ -1,3 +1,24 @@
-## Video Library Backend
+<div align="center">
+  <h1>VideoZone</h1>
+  
+</div
+## **Features -**
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+- Home page
+- Video listing page
+- Filter Videos based on categories
+- Singlevideo page
+- Like videos  
+- Watch Later Page
+- History of seen videos
+- Create playlist
+- Authentication:
+  - User Signup
+  - User Login
+
+
+## **Built with -**
+
+- React JS
+- React Context API + useReducer
+- React Router v6
